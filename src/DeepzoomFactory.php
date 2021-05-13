@@ -35,7 +35,9 @@ class DeepzoomFactory
             $this->getFilesystem(),
             $this->getImageManager(),
             $this->getTileFormat(),
-            $this->getPathPrefix()
+            $this->getPathPrefix(),
+            $this->getWatermarkFile(),
+            $this->getWatermarkLevel()
         );
 
         return $deepzoom;
@@ -93,6 +95,27 @@ class DeepzoomFactory
         }
 
         return $pathPrefix;
+    }
+
+    public function getWatermarkFile()
+    {
+        $watermarkFile = '';
+
+        if (isset($this->config['watermarkFile'])) {
+            $watermarkFile = $this->config['watermarkFile'];
+        }
+
+        return $watermarkFile;
+    }
+    public function getWatermarkLevel()
+    {
+        $watermarkLevel = '7';
+
+        if (isset($this->config['watermarkLevel'])) {
+            $watermarkLevel = $this->config['watermarkLevel'];
+        }
+
+        return $watermarkLevel;
     }
 
     /**

@@ -18,13 +18,15 @@ class Deepzoom
     private $tileSize;
     private $tileOverlap;
     private $pathPrefix;
+    private $watermarkFile;
+    private $watermarkLevel;
 
 
     /**
      * @param FilesystemInterface $path
      * @param ImageManager $imageManager
      */
-    public function __construct(FilesystemInterface $path, ImageManager $imageManager, $tileFormat, $pathPrefix)
+    public function __construct(FilesystemInterface $path, ImageManager $imageManager, $tileFormat, $pathPrefix, $watermarkFile, $watermarkLevel)
     {
         $this->setImageManager($imageManager);
         $this->setPath($path);
@@ -32,6 +34,8 @@ class Deepzoom
         $this->tileOverlap = 1;
         $this->tileFormat = $tileFormat;
         $this->pathPrefix = $pathPrefix;
+        $this->watermarkFile = $watermarkFile;
+        $this->watermarkLevel = $watermarkLevel;
     }
 
     /**
@@ -164,12 +168,19 @@ class Deepzoom
         // get column and row count for level
         $tiles = $this->getNumTiles($width, $height);
 
+        $watermarkFile = $this->watermarkFile;
+        $watermarkLevel = $this->watermarkLevel;
+
         foreach (range(0, $tiles['columns'] - 1) as $column) {
             foreach (range(0, $tiles['rows'] - 1) as $row) {
                 $tileImg = clone $img;
                 $tile_file = $column.'_'.$row.'.'.$this->tileFormat;
                 $bounds = $this->getTileBounds($level,$column,$row,$width,$height);
                 $tileImg->crop($bounds['width'],$bounds['height'],$bounds['x'],$bounds['y']);
+                // add watermark to tiles
+                if ($tiles['rows'] > $watermarkLevel && $watermarkFile != '') {
+                    $tileImg->insert($watermarkFile, 'center');
+                };
                 $tileImg->encode($this->tileFormat);
                 $this->path->put("$folder/$tile_file", $tileImg);
                 unset($tileImg);
