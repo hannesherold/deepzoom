@@ -4,33 +4,34 @@ Tile Generator for use with OpenSeadragon.
 
 https://openseadragon.github.io/
 
-Example implementation -
+### Watermark support (alpha version) 
+
+Makes use of `insert()` method of Intervention Image library to add a watermark image to tiles. 
+User can specify the image-file and the zoom-level at which the watermark should be applied.
+
+#### Example implementation 
 ```php
-  // Setup Deepzoom
-  $deepzoom = Jeremytubbs\Deepzoom\DeepzoomFactory::create([
-      'path' => 'images', // Export path for tiles
-      'driver' => 'imagick', // Choose between gd and imagick support.
-      'format' => 'jpg',
-  ]);
-  // folder, file are optional and will default to filename
-  $response = $deepzoom->makeTiles('KISS.jpg', 'file', 'folder');
+   require_once __DIR__ . '/vendor/autoload.php';
+
+   $options = [
+      'path'           => 'tiles',           // Export path for tiles
+      'driver'         => 'imagick',         // Choose between gd and imagick support. Default: gd
+      'format'         => 'jpg',             // Default: JPG
+      'watermarkFile'  => 'watermark.png',   // Default: null
+      'watermarkLevel' => 7,                 // Default: 7 (level 1 = zoom level 0)
+   ];
+   $source = 'images/test.jpg';
+   $folder = '';
+   $file = '';
+
+   // Setup Deepzoom
+   $deepzoom = Jeremytubbs\Deepzoom\DeepzoomFactory::create($options);
+
+   // folder, file are optional and will default to filename
+   $response = $deepzoom->makeTiles($source, $folder, $file);
+
 ```
 
-Example response -
-```javascript
-{
-  status: "ok",
-  data: {
-    output: {
-      JSONP: "folder/file.js",
-      DZI: "folder/file.dzi",
-      _files: "folder/file_files"
-    },
-    source: "source/file/path"
-  },
-  message: "Everything is okay!"
-}
-```
 
 ### Supported Image Libraries
 - GD Library (>=2.0)
