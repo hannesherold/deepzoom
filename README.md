@@ -62,13 +62,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-
-Copyright
----------
-
-* Copyright 2015-2016 Jeremy Tubbs
-* Copyright 2019 Corey Gillen
-* Copyright 2017-2020 Daniel Berthereau (see [Daniel-KM])
-
-[MIT]: https://www.gnu.org/licenses/gpl-3.0.html
-[Daniel-KM]: https://gitlab.com/Daniel-KM "Daniel Berthereau"
+[MIT]: https://spdx.org/licenses/MIT.html
