@@ -21,8 +21,8 @@ User can specify the image-file and the zoom-level at which the watermark should
       'watermarkLevel' => 7,                 // Default: 7 (level 1 = zoom level 0)
    ];
    $source = 'images/test.jpg';
-   $folder = '';
-   $file = '';
+   $folder = null;
+   $file = null;
 
    // Setup Deepzoom
    $deepzoom = Jeremytubbs\Deepzoom\DeepzoomFactory::create($options);
