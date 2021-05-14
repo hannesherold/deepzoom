@@ -18,7 +18,7 @@ User can specify the image-file and the zoom-level at which the watermark should
       'driver'         => 'imagick',         // Choose between gd and imagick support. Default: gd
       'format'         => 'jpg',             // Default: JPG
       'watermarkFile'  => 'watermark.png',   // Default: null
-      'watermarkLevel' => 7,                 // Default: 7 (level 1 = zoom level 0)
+      'watermarkLevel' => 7,                 // Default: 7 (level 0 = zoom level 0)
    ];
    $source = 'images/test.jpg';
    $folder = null;
