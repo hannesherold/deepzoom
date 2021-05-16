@@ -6,8 +6,9 @@ https://openseadragon.github.io/
 
 ### Watermark support (alpha version) 
 
-Makes use of `insert()` method of Intervention Image library to add a watermark image to tiles. 
-User can specify the image-file and the zoom-level at which the watermark should be applied.
+Makes use of `insert()` method of Intervention Image library to add a watermark image to tiles. User can specify the image-file and the zoom-level at which the watermark should be applied.
+
+Alpha version tested with imagick image library only.
 
 #### Example implementation 
 ```php

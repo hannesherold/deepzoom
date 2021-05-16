@@ -1,8 +1,12 @@
 {
-    "name": "jeremytubbs/deepzoom",
-    "description": "Deepzoom Tile Generator for OpenSeadragon",
+    "name": "hherold/deepzoom",
+    "description": "Deepzoom tile generator for OpenSeadragon with watermark support",
     "license": "MIT",
     "authors" : [
+        {
+            "name": "Hannes Herold",
+            "email": "info@hherold.de"
+        },
         {
             "name": "Jeremy Tubbs",
             "email": "jeremytubbs@gmail.com",
@@ -21,11 +25,12 @@
         "gd",
         "imagemagick",
         "imagick",
-        "flysystem"
+        "flysystem",
+        "watermark"
     ],
     "autoload": {
         "psr-4": {
-            "Jeremytubbs\\Deepzoom\\": "src/"
+            "Hherold\\Deepzoom\\": "src/"
         }
     },
     "require": {
