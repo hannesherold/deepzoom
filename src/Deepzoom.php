@@ -1,13 +1,13 @@
 <?php
 
-namespace Jeremytubbs\Deepzoom;
+namespace Hherold\Deepzoom;
 
 use Intervention\Image\ImageManager;
 use League\Flysystem\FilesystemInterface;
 
 /**
  * Class Deepzoom
- * @package Jeremytubbs\Deepzoom
+ * @package Hherold\Deepzoom
  */
 class Deepzoom
 {
