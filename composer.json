@@ -1,6 +1,6 @@
 {
     "name": "hherold/deepzoom",
-    "description": "Deepzoom tile generator for OpenSeadragon with watermark support",
+    "description": "Fork of Deepzoom tile generator with additional watermark support",
     "version": "1.0.0",
     "license": "MIT",
     "authors" : [

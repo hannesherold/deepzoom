@@ -1,25 +1,24 @@
 Deepzoom
 ==
-Tile Generator for use with OpenSeadragon.
-
-https://openseadragon.github.io/
+This is a modified fork of [jeremytubbs/deepzoom](https://github.com/jeremytubbs/deepzoom), a tile Generator for use with [OpenSeadragon](https://openseadragon.github.io/). It supports automatic watermark insertion.
 
 ### Watermark support (alpha version) 
 
-Makes use of `insert()` method of Intervention Image library to add a watermark image to tiles. User can specify the image-file and the zoom-level at which the watermark should be applied.
+To automatically add a watermark image to tiles, we use the `insert()` method of the Intervention Image library. 
 
-Alpha version tested with imagick image library only.
+Users can specify the image-file and the zoom-level from which on the watermark should be applied.
 
-#### Example implementation 
+This alpha version was tested with imagick image library only.
+
+### Example implementation 
 ```php
    require_once __DIR__ . '/vendor/autoload.php';
 
    $options = [
-      'path'           => 'tiles',           // Export path for tiles
-      'driver'         => 'imagick',         // Choose between gd and imagick support. Default: gd
-      'format'         => 'jpg',             // Default: JPG
-      'watermarkFile'  => 'watermark.png',   // Default: null
-      'watermarkLevel' => 7,                 // Default: 7 (level 0 = zoom level 0)
+      'path'           => 'tiles',
+      'format'         => 'jpg',
+      'watermarkFile'  => 'watermark.png',
+      'watermarkLevel' => 10,
    ];
    $source = 'images/test.jpg';
    $folder = null;
@@ -34,9 +33,33 @@ Alpha version tested with imagick image library only.
 ```
 
 
+
+___path___
+<br>
+The export path for tiles.
+<br>
+_required_
+
+___format___
+<br>
+The export format for tiles. Watermark support was only tested with jpg files.
+<br>
+_Default: jpg_
+
+___watermarkFile___
+<br>
+If you want the module to automatically add a watermark to the tiles, specify the file here. Transparent PNG works best. 
+<br>
+_Default: null_
+
+___watermarkLevel___
+<br>
+Specify from which zoom-level on the watermark should be applied.
+<br>
+_Default: 10_
+
 ### Supported Image Libraries
-- GD Library (>=2.0)
-- Imagick PHP extension (>=6.5.7)
+Originally Deepzoom supports Imagick and gd. This module however is only tested with Imagick (>=6.5.7), which is therefore set default.
 
 ### FYI:
 Filenames for JSONP must not start with a number and should not contain hyphen therefore filename spaces and hyphens will be converted to underscores. Folder name spaces will be converted to hyphens. If you would like to avoid this auto-naming declare your 'folder' and 'file' within the maketiles method. 

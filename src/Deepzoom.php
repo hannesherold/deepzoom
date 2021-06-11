@@ -178,7 +178,7 @@ class Deepzoom
                 $bounds = $this->getTileBounds($level,$column,$row,$width,$height);
                 $tileImg->crop($bounds['width'],$bounds['height'],$bounds['x'],$bounds['y']);
                 // add watermark to tiles
-                if ($tiles['rows'] > $watermarkLevel && $watermarkFile != '') {
+                if ($level >= $watermarkLevel && $watermarkFile != null) {
                     $tileImg->insert($watermarkFile, 'center');
                 };
                 $tileImg->encode($this->tileFormat);

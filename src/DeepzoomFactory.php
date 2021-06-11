@@ -66,7 +66,7 @@ class DeepzoomFactory
      */
     public function getImageManager()
     {
-        $driver = 'gd';
+        $driver = 'imagick';
 
         if (isset($this->config['driver'])) {
             $driver = $this->config['driver'];
@@ -99,7 +99,7 @@ class DeepzoomFactory
 
     public function getWatermarkFile()
     {
-        $watermarkFile = '';
+        $watermarkFile = null;
 
         if (isset($this->config['watermarkFile'])) {
             $watermarkFile = $this->config['watermarkFile'];
@@ -109,7 +109,7 @@ class DeepzoomFactory
     }
     public function getWatermarkLevel()
     {
-        $watermarkLevel = '7';
+        $watermarkLevel = '10';
 
         if (isset($this->config['watermarkLevel'])) {
             $watermarkLevel = $this->config['watermarkLevel'];
