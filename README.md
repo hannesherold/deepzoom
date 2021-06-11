@@ -1,13 +1,15 @@
 Deepzoom
 ==
-This is a modified fork of [jeremytubbs/deepzoom](https://github.com/jeremytubbs/deepzoom), a tile Generator for use with [OpenSeadragon](https://openseadragon.github.io/). It supports automatic watermark insertion.
+This is a modified fork of [jeremytubbs/deepzoom](https://github.com/jeremytubbs/deepzoom), a tile Generator for use with [OpenSeadragon](https://openseadragon.github.io/). 
+<br>
+It supports automatic watermark insertion.
 
 ### Watermark support (alpha version) 
 
 To automatically add a watermark image to tiles, we use the `insert()` method of the Intervention Image library. 
-
+<br>
 Users can specify the image-file and the zoom-level from which on the watermark should be applied.
-
+<br>
 This alpha version was tested with imagick image library only.
 
 ### Example implementation 
@@ -25,7 +27,7 @@ This alpha version was tested with imagick image library only.
    $file = null;
 
    // Setup Deepzoom
-   $deepzoom = Jeremytubbs\Deepzoom\DeepzoomFactory::create($options);
+   $deepzoom = Hherold\Deepzoom\DeepzoomFactory::create($options);
 
    // folder, file are optional and will default to filename
    $response = $deepzoom->makeTiles($source, $folder, $file);
