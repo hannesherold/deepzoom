@@ -1,7 +1,7 @@
 {
     "name": "hherold/deepzoom",
     "description": "Fork of Deepzoom tile generator with additional watermark support",
-    "version": "1.0.0",
+    "version": "0.1.0",
     "license": "MIT",
     "authors" : [
         {
