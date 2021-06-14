@@ -4,7 +4,7 @@ This is a modified fork of [jeremytubbs/deepzoom](https://github.com/jeremytubbs
 <br>
 It supports automatic watermark insertion.
 
-### Watermark support (alpha version) 
+### Basic watermark support
 
 To automatically add a watermark image to tiles, we use the `insert()` method of the Intervention Image library. 
 <br>
